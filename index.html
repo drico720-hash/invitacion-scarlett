@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#4d0610">
+<title>La mágica historia de Scarlett · 1 añito</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;background:#160106}
+body{font-family:Georgia,"Times New Roman",serif;color:#4b171b}
+.book{height:100svh;max-width:520px;margin:auto;position:relative;overflow:hidden;background:#5b0613;perspective:1800px}
+.page{position:absolute;inset:0;padding:25px 20px 75px;display:flex;align-items:center;justify-content:center;text-align:center;opacity:0;pointer-events:none;transform:rotateY(18deg) translateX(38px) scale(.97);transform-origin:left center;transition:opacity .2s,transform .75s cubic-bezier(.18,.82,.2,1);overflow:auto}
+.page.active{opacity:1;pointer-events:auto;transform:none}.page.turn{animation:turn .8s cubic-bezier(.16,.84,.2,1)}
+@keyframes turn{0%{opacity:0;transform:rotateY(65deg) translateX(65px) scale(.94)}55%{opacity:1}100%{opacity:1;transform:none}}
+.red{background:radial-gradient(circle at 15% 12%,#ffb68b22,transparent 22%),linear-gradient(145deg,#570510,#a20f24 55%,#47030c);color:#fff}
+.cream{background:radial-gradient(circle at 12% 8%,#fff 0 2px,transparent 3px),radial-gradient(circle at 80% 40%,#fff 0 1px,transparent 3px),linear-gradient(145deg,#fff8f0,#f1d2c8);background-size:90px 120px,140px 150px,auto}
+.content{width:100%;max-width:440px;position:relative;z-index:2}.eyebrow{font:700 11px Arial;text-transform:uppercase;letter-spacing:3px}.script{font-style:italic;font-weight:700}
+.coverbook{width:300px;height:410px;margin:15px auto 22px;position:relative;border-radius:9px 18px 18px 9px;background:linear-gradient(90deg,#45040c,#7e0a19 12%,#8e1021 90%,#4a040d);box-shadow:18px 20px 35px #180005aa, inset 6px 0 #c98e4b33;border:2px solid #c99958}
+.coverbook:before{content:"";position:absolute;inset:17px;border:1px solid #d7a45e;border-radius:5px}
+.coverbook:after{content:"✦";position:absolute;left:50%;top:17px;transform:translateX(-50%);font-size:28px;color:#e0b76d}
+.cover-title{position:absolute;inset:70px 25px 70px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#f2c878}
+.cover-title .small{font:700 13px Arial;letter-spacing:3px;text-transform:uppercase}.cover-title h1{font-size:52px;line-height:.9;margin:13px 0;font-style:italic}.cover-title .one{font:900 64px Arial;color:#fff1d4}.cover-bow{position:absolute;bottom:24px;font-size:48px}
+.envelopehint{font-size:23px}.tap{font:700 10px Arial;letter-spacing:2px;text-transform:uppercase;opacity:.8;margin-top:8px}
+.photo{width:100%;height:53svh;max-height:510px;min-height:300px;object-fit:cover;border:6px solid #fff;border-radius:22px;box-shadow:0 20px 40px #45030c44}
+.frame{padding:8px;background:#fff;border-radius:28px;box-shadow:0 15px 30px #42020d33}
+.copy{font-size:19px;line-height:1.5;margin:17px auto;max-width:390px}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px}.gallery img{width:100%;height:195px;object-fit:cover;border:4px solid #fff;border-radius:18px;box-shadow:0 8px 18px #40020c22}.gallery img:first-child{height:255px;grid-row:span 2}
+.card{background:#fff8f1;border:1px solid #dca99b;border-radius:24px;padding:22px;width:100%;box-shadow:0 15px 30px #3c020d33}.detail{display:flex;align-items:center;gap:13px;text-align:left;padding:14px 0;border-bottom:1px solid #e9cbc2}.detail:last-child{border:0}.icon{width:42px;height:42px;border-radius:50%;background:#9b0e22;color:#fff;display:grid;place-items:center;font:700 18px Arial;flex:none}.label{font:700 10px Arial;text-transform:uppercase;letter-spacing:2px;color:#9b0e22}.value{font-size:18px;font-weight:700;margin-top:3px}
+.btn{display:inline-block;margin-top:14px;padding:14px 22px;background:#9d1024;color:#fff;text-decoration:none;border-radius:999px;font:700 14px Arial;box-shadow:0 8px 18px #51030d44}
+.controls{position:absolute;z-index:30;bottom:13px;left:50%;transform:translateX(-50%);display:flex;gap:7px;padding:8px 11px;border-radius:30px;background:#0003;backdrop-filter:blur(8px)}.dot{width:7px;height:7px;padding:0;border:0;border-radius:50%;background:#ffffff66}.dot.on{background:#fff}
+.arrow{position:absolute;z-index:31;bottom:13px;width:44px;height:44px;border:0;border-radius:50%;background:#fff;color:#8c0d20;font-size:24px;box-shadow:0 8px 16px #0003}.prev{left:14px}.next{right:14px}
+.music{position:absolute;z-index:40;top:14px;right:14px;width:44px;height:44px;border:1px solid #ffffff66;border-radius:50%;background:#ffffff1c;color:#fff;backdrop-filter:blur(8px);font-size:18px}
+.particles{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none}.p{position:absolute;top:-30px;animation:fall linear infinite;opacity:.85}.p:nth-child(odd){color:#f2c77a}.p:nth-child(even){color:#fff}.p{font-size:14px}
+@keyframes fall{to{transform:translate(var(--x),110vh) rotate(480deg);opacity:0}}
+.glow{position:absolute;width:180px;height:180px;border-radius:50%;background:#ffb28c22;filter:blur(30px);z-index:1;animation:glow 5s ease-in-out infinite}.g1{left:-80px;top:10%}.g2{right:-90px;bottom:10%;animation-delay:2s}@keyframes glow{50%{transform:scale(1.35);opacity:.5}}
+</style>
+</head>
+<body>
+<div class="book" id="book">
+<div class="particles" id="particles"></div><div class="glow g1"></div><div class="glow g2"></div>
+<button class="music" id="music">♫</button>
+<section class="page red active"><div class="content"><div class="coverbook" id="cover" onclick="openBook()"><div class="cover-title"><div class="small">La mágica historia de</div><h1>Scarlett</h1><div class="one">1 añito</div><div class="cover-bow">🎀</div></div></div><div class="script envelopehint">Toca para abrir</div><div class="tap">Comienza nuestro cuento ✨</div></div></section>
+<section class="page cream"><div class="content"><div class="eyebrow" style="color:#9b0e22">Capítulo I</div><h1 style="color:#9b0e22;font-size:46px;margin:12px">¡Hola!<br>Soy Scarlett</h1><div class="frame"><img class="photo" src="foto2.jpg"></div><p class="copy">Y quiero compartir contigo un día muy especial… ❤️</p></div></section>
+<section class="page red"><div class="content"><div class="frame"><img class="photo" src="foto1.jpg"></div><p class="script" style="font-size:24px">Porque la vida es más linda cuando se comparte…</p><div style="font-size:30px">♡ ✦ ♡</div></div></section>
+<section class="page cream"><div class="content"><div class="eyebrow" style="color:#9b0e22">Capítulo II</div><h1 style="color:#9b0e22;font-size:43px">Mi primer añito</h1><div class="frame"><img class="photo" src="foto3.jpg"></div><p class="copy">Gracias por ser parte de este día tan especial. 🧸</p></div></section>
+<section class="page cream"><div class="content"><div class="eyebrow" style="color:#9b0e22">Capítulo III</div><h1 style="color:#9b0e22;font-size:42px">Nuestra princesa</h1><div class="gallery"><img src="foto2.jpg"><img src="foto4.jpg"><img src="foto1.jpg"></div><p class="copy"><b>Cada sonrisa es un motivo para celebrar.</b></p></div></section>
+<section class="page red"><div class="content"><div class="eyebrow">Capítulo IV</div><h1 style="font-size:46px">Detalles<br><span style="color:#efc477">del evento</span></h1><div class="card" style="color:#4b171b"><div class="detail"><div class="icon">♥</div><div><div class="label">Fecha</div><div class="value">21 de Noviembre</div></div></div><div class="detail"><div class="icon">◷</div><div><div class="label">Hora</div><div class="value">05:00 p. m.</div></div></div><div class="detail"><div class="icon">⌖</div><div><div class="label">Lugar</div><div class="value">Calle 47#25-21<br>Alfonso López</div></div></div></div></div></section>
+<section class="page cream"><div class="content"><div class="eyebrow" style="color:#9b0e22">Capítulo V</div><h1 style="color:#9b0e22;font-size:44px">¿Cómo llegar?</h1><div style="height:215px;border-radius:22px;background:linear-gradient(30deg,#eee,#fff);position:relative;overflow:hidden;box-shadow:inset 0 0 0 1px #dec2b8"><div style="position:absolute;inset:0;background:linear-gradient(25deg,transparent 48%,#d0d0d0 49% 52%,transparent 53%),linear-gradient(155deg,transparent 45%,#d0d0d0 46% 49%,transparent 50%)"></div><div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:54px">📍</div></div><p class="copy"><b>Calle 47#25-21<br>Alfonso López</b></p><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Calle%2047%2325-21%2C%20Alfonso%20L%C3%B3pez">📍 Ver ubicación →</a></div></section>
+<section class="page red"><div class="content"><div class="frame"><img class="photo" src="foto2.jpg"></div><h1 style="font-size:45px">¡Te esperamos!</h1><p class="script" style="font-size:24px;color:#f0c778">Gracias por hacer parte de este cuento tan especial.</p><div style="font-size:30px">♥ ✦ ♥</div><p class="script" style="font-size:22px">Con cariño,<br>Scarlett</p></div></section>
+<button class="arrow prev" onclick="move(-1)">‹</button><button class="arrow next" onclick="move(1)">›</button><div class="controls" id="controls"></div>
+</div>
+<script>
+const pages=[...document.querySelectorAll('.page')],controls=document.getElementById('controls');let i=0,opened=false,music=false,audio;
+pages.forEach((_,n)=>{let d=document.createElement('button');d.className='dot'+(n===0?' on':'');d.onclick=()=>show(n);controls.appendChild(d)});
+function show(n){i=Math.max(0,Math.min(pages.length-1,n));pages.forEach((p,k)=>{p.classList.toggle('active',k===i);if(k===i){p.classList.remove('turn');void p.offsetWidth;p.classList.add('turn')}});[...controls.children].forEach((d,k)=>d.classList.toggle('on',k===i))}
+function move(d){if(i===0&&!opened&&d>0){openBook();return}show(i+d)}
+function openBook(){opened=true;startMusic();burst();setTimeout(()=>show(1),350)}
+function burst(){for(let n=0;n<26;n++){let e=document.createElement('span');e.textContent=['♥','✦','♡'][n%3];e.style.position='absolute';e.style.left='50%';e.style.top='50%';e.style.zIndex=20;e.style.color=['#fff','#e7bd72','#ffb2b2'][n%3];e.style.fontSize=(10+Math.random()*18)+'px';let x=Math.random()*360-180,y=Math.random()*280-140;e.animate([{transform:'translate(-50%,-50%) scale(.2)',opacity:1},{transform:`translate(calc(-50% + ${x}px),calc(-50% + ${y}px)) scale(1)`,opacity:0}],{duration:900+Math.random()*500});document.querySelector('.book').appendChild(e);setTimeout(()=>e.remove(),1500)}}
+const box=document.getElementById('particles');for(let n=0;n<30;n++){let p=document.createElement('span');p.className='p';p.textContent=['✦','♥','•','♡'][n%4];p.style.left=Math.random()*100+'%';p.style.setProperty('--x',(Math.random()*160-80)+'px');p.style.animationDuration=(5+Math.random()*8)+'s';p.style.animationDelay=(-Math.random()*10)+'s';box.appendChild(p)}
+function startMusic(){if(music)return;audio=document.getElementById('bgm');audio.volume=.55;audio.play().then(()=>{music=true;document.getElementById('music').textContent='♫'}).catch(()=>{document.getElementById('music').textContent='▶'})}
+document.getElementById('music').onclick=()=>{if(!audio)return;if(audio.paused){audio.play();music=true;document.getElementById('music').textContent='♫'}else{audio.pause();music=false;document.getElementById('music').textContent='🔇'}}
+let sx=0;document.getElementById('book').addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});document.getElementById('book').addEventListener('touchend',e=>{let dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>45)move(dx<0?1:-1)},{passive:true});document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')move(1);if(e.key==='ArrowLeft')move(-1)});
+</script>
+<audio id="bgm" preload="auto" loop><source src="musica_princesa_original.mp3" type="audio/mpeg"></audio>
+</body></html>
